@@ -18,6 +18,8 @@ defmodule TodosWeb.Router do
     # as long as you are also using SSL (which you should anyway).
     import Phoenix.LiveDashboard.Router
 
+    resources "/todos", TodoController, except: [:new, :edit]
+
     scope "/dev" do
       pipe_through [:fetch_session, :protect_from_forgery]
 
